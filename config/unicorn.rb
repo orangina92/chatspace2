@@ -1,15 +1,12 @@
-# app_path = File.expand_path('../../../../', __FILE__)
-app_path = "/var/www/chatspace/chatspace"
+app_path = File.expand_path('../../', __FILE__)
 
 worker_processes 1
 
-working_directory "/var/www/chatspace/chatspace/current"
-listen "/var/www/chatspace/chatspace/shared/tmp/sockets/unicorn.sock"
-pid "/var/www/chatspace/chatspace/shared/tmp/pids/unicorn.pid"
-stderr_path "/var/www/chatspace/chatspace/shared/log/unicorn.stderr.log"
-# stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
-stdout_path "/var/www/chatspace/chatspace/shared/log/unicorn.stdout.log"
-
+working_directory app_path
+pid "#{app_path}/tmp/pids/unicorn.pid"
+listen "#{app_path}/tmp/sockets/unicorn.sock"
+stderr_path "#{app_path}/log/unicorn.stderr.log"
+stdout_path "#{app_path}/log/unicorn.stdout.log"
 
 listen 3000
 timeout 60
