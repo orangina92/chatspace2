@@ -1,28 +1,19 @@
-# config valid for current version and patch releases of Capistrano
-lock "~> 3.11.0"
+# config valid only for current version of Capistrano
+lock '~> 3.11.0'
 
-set :application, 'chatspace'
-set :repo_url,  'git@github.com:orangina92/chatspace.git'
+set :application, 'chatspace2'
+set :repo_url,  'git@github.com:orangina92/chatspace2.git'
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
-set :deploy_to, "/var/www/chatspace/chatspace"
+
 set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/key.pem']
+                  keys: ['~/.ssh/keypair_pem']
 
-# fixpath
-set :unicorn_pid, -> { "/var/www/chatspace/chatspace/shared/tmp/pids/unicorn.pid" }
-set :unicorn_config_path, -> { "/var/www/chatspace/chatspace/current/config/unicorn.rb" }
-
-# addpath
-set :shared_path, -> { "/var/www/chatspace/chatspace/shared" }
-set :current_path, -> { "/var/www/chatspace/chatspace/current" }
-set :releases_path, -> { "/var/www/chatspace/chatspace/releases" }
-
-
-
+set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
+set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
 after 'deploy:publishing', 'deploy:restart'
