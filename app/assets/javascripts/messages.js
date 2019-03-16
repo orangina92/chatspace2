@@ -1,8 +1,8 @@
 $(function() {
   function buildSendMessageHTML(message){
     var insertImage = '';
-    if (message.image_url) {
-      insertImage = `<img src="${message.image_url}">`;
+    if (message.image) {
+      insertImage = `<img src="${message.image}">`;
     }
     var html = `<div class='message' data-message-id="${message.id}">
                   <div class="upper-message">
@@ -51,7 +51,7 @@ $(function() {
   }
 
 $(function(){
-    setInterval(updateSendMessage, 5000);
+    // setInterval(updateSendMessage, 5000);
   });
   function updateSendMessage(){
     if($('.messages')[0]){
