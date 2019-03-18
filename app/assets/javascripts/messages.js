@@ -41,7 +41,7 @@ $(function() {
       var html = buildSendMessageHTML(sendMessage);
       $('.messages').append(html);
       $('#new_message')[0].reset();
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 5);
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 50);
     })
     .fail(function(){
       alert('メッセージの送信に失敗しました');
@@ -49,7 +49,7 @@ $(function() {
   });
 
 $(function(){
-    setInterval(updateSendMessage, 1000);
+    setInterval(updateSendMessage, 5000);
   });
   function updateSendMessage(){
     if($('.messages')[0]){
@@ -69,7 +69,7 @@ $(function(){
       $.each(sendMessage, function(i, sendMessage){
         var html = buildSendMessageHTML(sendMessage);
       $('.messages').append(html);
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 5);
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 50);
       });
     });
   }
