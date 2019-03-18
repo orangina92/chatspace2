@@ -14,9 +14,11 @@ $(function() {
                     </div>
                   </div>
                   <div class='lower-message'>
-                    ${message.content}
-                      </div>
-                    ${insertImage}
+                    <div class='lower-message__content'>
+                      ${message.content}
+                        </divs>
+                      ${insertImage}
+                    </div>
                   </div>
                 </div>`;
     return html;
@@ -39,16 +41,12 @@ $(function() {
       var html = buildSendMessageHTML(sendMessage);
       $('.messages').append(html);
       $('#new_message')[0].reset();
-      $('.message').animate({scrollTop: $(".message")[0].scrollHeight}, 1500);
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 10);
     })
     .fail(function(){
       alert('メッセージの送信に失敗しました');
     });
   });
-
-  function scroll() {
-    $('.message').animate({scrollTop: $('.message')[0].scrollHeight}, 'fast');
-  }
 
 $(function(){
     setInterval(updateSendMessage, 5000);
@@ -71,6 +69,7 @@ $(function(){
       $.each(sendMessage, function(i, sendMessage){
         var html = buildSendMessageHTML(sendMessage);
       $('.messages').append(html);
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 10);
       });
     });
   }
