@@ -3,12 +3,12 @@ class Message < ApplicationRecord
   belongs_to :user
 
   validates :group_id, :user_id, presence: true, numericality: {only_integer: true}
-  validates :body_or_image, presence: true
+  validates :content_or_image, presence: true
   mount_uploader :image, Message::ImageUploader
   private
 
-  def body_or_image
-    body.presence or image.presence
+  def content_or_image
+    content.presence or image.presence
   end
 
 
