@@ -4,6 +4,7 @@
     box-sizing: border-box;
     height: 100px;
     padding: 0 40px;
+    overflow: scroll;
     .left-header {
       float: left;
       &__title {
@@ -16,9 +17,12 @@
         color: $light_gray;
         font-size: 12px;
         margin-top: 15px;
-        .member {
+      &__member {
           display: inline-block;
           padding-right: 5px;
+        }
+      li + li {
+        margin-left: 0.3rem;
         }
       }
     }
@@ -41,7 +45,8 @@
     background-color: #FAFAFA;
     box-sizing: border-box;
     padding: 46px 40px 0;
-    height: calc(100% - 100px - 90px);
+    height: calc(100vh - 100px - 90px);
+    overflow: scroll;
     .message {
       .upper-message {
         display: flex;
