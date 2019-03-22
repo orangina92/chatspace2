@@ -42,7 +42,7 @@ $(function() {
     if (sendMessage.length != 0) {
       $('.messages').append(html);
     } else {
-      alert('メッセージが入力されていません');
+      alert('メッセージを入力して下さい');
     }
       $('#new_message')[0].reset();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 10);
