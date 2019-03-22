@@ -38,8 +38,12 @@ $(function() {
     })
 
     .done(function(sendMessage) {
-      var html = buildSendMessageHTML(sendMessage);
+    var html = buildSendMessageHTML(sendMessage);
+    if (sendMessage.length != 0) {
       $('.messages').append(html);
+    } else {
+      alert('メッセージが入力されていません');
+    }
       $('#new_message')[0].reset();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 10);
     })
